@@ -199,8 +199,11 @@ export default function ResumeBuilder({ initialContent }) {
               <h3 className="text-lg font-medium">Contact Information</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 border rounded-lg bg-muted/50">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Email</label>
+                  <label htmlFor="contactEmail" className="text-sm font-medium">
+                    Email
+                  </label>
                   <Input
+                    id="contactEmail"
                     {...register("contactInfo.email")}
                     type="email"
                     placeholder="your@email.com"
@@ -213,8 +216,11 @@ export default function ResumeBuilder({ initialContent }) {
                   )}
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Mobile Number</label>
+                  <label htmlFor="contactMobile" className="text-sm font-medium">
+                    Mobile Number
+                  </label>
                   <Input
+                    id="contactMobile"
                     {...register("contactInfo.mobile")}
                     type="tel"
                     placeholder="+1 234 567 8900"
@@ -226,8 +232,11 @@ export default function ResumeBuilder({ initialContent }) {
                   )}
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">LinkedIn URL</label>
+                  <label htmlFor="contactLinkedin" className="text-sm font-medium">
+                    LinkedIn URL
+                  </label>
                   <Input
+                    id="contactLinkedin"
                     {...register("contactInfo.linkedin")}
                     type="url"
                     placeholder="https://linkedin.com/in/your-profile"
@@ -239,10 +248,11 @@ export default function ResumeBuilder({ initialContent }) {
                   )}
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">
+                  <label htmlFor="contactTwitter" className="text-sm font-medium">
                     Twitter/X Profile
                   </label>
                   <Input
+                    id="contactTwitter"
                     {...register("contactInfo.twitter")}
                     type="url"
                     placeholder="https://twitter.com/your-handle"
@@ -265,6 +275,7 @@ export default function ResumeBuilder({ initialContent }) {
                 render={({ field }) => (
                   <Textarea
                     {...field}
+                    id="summary"
                     className="h-32"
                     placeholder="Write a compelling professional summary..."
                     error={errors.summary}
@@ -285,6 +296,7 @@ export default function ResumeBuilder({ initialContent }) {
                 render={({ field }) => (
                   <Textarea
                     {...field}
+                    id="skills"
                     className="h-32"
                     placeholder="List your key skills..."
                     error={errors.skills}

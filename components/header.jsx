@@ -16,8 +16,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import Image from "next/image";
 import { checkUser } from "@/lib/checkUser";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default async function Header() {
   await checkUser();
@@ -25,18 +25,18 @@ export default async function Header() {
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/">
-          <Image
-            src={"/logo.png"}
-            alt="Sensai Logo"
-            width={200}
-            height={60}
-            className="h-12 py-1 w-auto object-contain"
-          />
+        <Link
+          href="/"
+          className="flex items-center text-2xl font-extrabold tracking-tight text-foreground"
+        >
+          Sens
+          <span className="gradient bg-clip-text text-transparent">Ai</span>
         </Link>
 
         {/* Action Buttons */}
         <div className="flex items-center space-x-2 md:space-x-4">
+          <ModeToggle />
+
           <SignedIn>
             <Link href="/dashboard">
               <Button

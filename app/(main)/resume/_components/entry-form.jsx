@@ -142,6 +142,7 @@ export function EntryForm({ type, entries, onChange }) {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Input
+                  id={`${type.toLowerCase()}-title`}
                   placeholder="Title/Position"
                   {...register("title")}
                   error={errors.title}
@@ -152,6 +153,7 @@ export function EntryForm({ type, entries, onChange }) {
               </div>
               <div className="space-y-2">
                 <Input
+                  id={`${type.toLowerCase()}-organization`}
                   placeholder="Organization/Company"
                   {...register("organization")}
                   error={errors.organization}
@@ -167,6 +169,7 @@ export function EntryForm({ type, entries, onChange }) {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Input
+                  id={`${type.toLowerCase()}-startDate`}
                   type="month"
                   {...register("startDate")}
                   error={errors.startDate}
@@ -179,6 +182,7 @@ export function EntryForm({ type, entries, onChange }) {
               </div>
               <div className="space-y-2">
                 <Input
+                  id={`${type.toLowerCase()}-endDate`}
                   type="month"
                   {...register("endDate")}
                   disabled={current}
@@ -195,7 +199,7 @@ export function EntryForm({ type, entries, onChange }) {
             <div className="flex items-center space-x-2">
               <input
                 type="checkbox"
-                id="current"
+                id={`${type.toLowerCase()}-current`}
                 {...register("current")}
                 onChange={(e) => {
                   setValue("current", e.target.checked);
@@ -204,11 +208,14 @@ export function EntryForm({ type, entries, onChange }) {
                   }
                 }}
               />
-              <label htmlFor="current">Current {type}</label>
+              <label htmlFor={`${type.toLowerCase()}-current`}>
+                Current {type}
+              </label>
             </div>
 
             <div className="space-y-2">
               <Textarea
+                id={`${type.toLowerCase()}-description`}
                 placeholder={`Description of your ${type.toLowerCase()}`}
                 className="h-32"
                 {...register("description")}
